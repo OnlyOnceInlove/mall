@@ -47,19 +47,13 @@ public class JWTUtil {
         return null;
     }
 
-    /**
-     * 根据Token获取user_id
-     *
-     * @param token
-     * @return user_id
-     */
-    public static Long getAppUID(String token) {
+    public static Long getUserId(String token) {
         Map<String, Claim> claims = verifyToken(token);
-        Claim user_id_claim = claims.get("userId");
-        if (null == user_id_claim || StringUtils.isEmpty(user_id_claim.asString())) {
-            // token 校验失败, 抛出Token验证非法异常
+        Claim userId = claims.get("userId");
+        if (null == userId || StringUtils.isEmpty(userId.asString())) {
+            return null;
         }
-        return Long.valueOf(user_id_claim.asString());
+        return Long.parseLong(userId.asString());
     }
 
     public static boolean isVaild(String token){
