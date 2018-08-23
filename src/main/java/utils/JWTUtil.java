@@ -6,7 +6,6 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -14,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JWTUtil {
-    public static final String SECRET = Constants.SECRET_KEY;
-    public static final long calendarField = System.currentTimeMillis();
-    public static final long calendarInterval = 1000 * 60 * 30;
+    private static final String SECRET = Constants.SECRET_KEY;
+    private static final long calendarField = System.currentTimeMillis();
+    private static final long calendarInterval = 1000 * 60 * 30;
 
     public static String createToken(Long userId) throws UnsupportedEncodingException {
         Map<String, Object> map = new HashMap<>();
