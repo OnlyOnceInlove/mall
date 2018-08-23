@@ -12,7 +12,7 @@ spring:
           #监控统计拦截的filters
           filters: stat
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://192.168.1.188:3306/shwq?useUnicode=true&characterEncoding=UTF-8&ENGINE=InnoDB
+          url: jdbc:mysql://192.168.1.188:3306/mall?useUnicode=true&characterEncoding=UTF-8&ENGINE=InnoDB
           username: p2proot
           password: pxkj123
           #配置初始化大小/最小/最大
