@@ -1,4 +1,4 @@
-package cms.utils;
+package cms.core;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

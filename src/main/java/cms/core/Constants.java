@@ -1,6 +1,4 @@
-package cms.utils;
-
-import org.springframework.context.annotation.Configuration;
+package cms.core;
 
 import java.io.InputStream;
 import java.util.Properties;

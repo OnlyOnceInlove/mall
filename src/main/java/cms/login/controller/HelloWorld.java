@@ -1,6 +1,6 @@
-package cms.controller;
+package cms.login.controller;
 
-import cms.utils.Authorize;
+import cms.core.Authorize;
 import cms.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package cms.utils;
+package cms.core;
 
 import java.lang.annotation.*;
 

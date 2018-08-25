@@ -1,6 +1,6 @@
-package cms.controller;
+package cms.login.controller;
 
-import cms.utils.AuthorizeSettingLoader;
+import cms.core.AuthorizeSettingLoader;
 import cms.utils.Jwt;
 import cms.utils.Tools;
 import com.alibaba.fastjson.JSONArray;
@@ -28,7 +28,6 @@ import java.util.Map;
  * @Version 1.0
  **/
 @Controller
-@EnableAutoConfiguration
 @RequestMapping(value = "/login")
 public class LoginController {
 
@@ -40,7 +39,7 @@ public class LoginController {
      * @Description 用户登录
      * @Date 2018/8/25 15:54
      * @Param [login, request]
-     * @Return java.util.Map<java.lang.String   ,   java.lang.Object>
+     * @Return java.util.Map<java.lang.String       ,       java.lang.Object>
      **/
     @RequestMapping(value = "/userLogin", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody

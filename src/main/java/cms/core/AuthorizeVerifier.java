@@ -1,7 +1,7 @@
-package cms.utils;
+package cms.core;
 
-import cms.utils.Authorize.AuthorizeType;
-import io.jsonwebtoken.Claims;
+import cms.core.Authorize.AuthorizeType;
+import cms.utils.Jwt;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;

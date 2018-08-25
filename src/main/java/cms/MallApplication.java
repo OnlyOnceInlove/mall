@@ -1,6 +1,6 @@
 package cms;
 
-import cms.utils.AuthtokenInterceptor;
+import cms.core.AuthtokenInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;

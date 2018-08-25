@@ -1,4 +1,4 @@
-package cms.utils;
+package cms.core;
 
 import org.springframework.aop.framework.Advised;
 import org.springframework.aop.target.SingletonTargetSource;

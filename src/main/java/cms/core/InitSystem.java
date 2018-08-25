@@ -1,5 +1,6 @@
-package cms.utils;
+package cms.core;
 
+import cms.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -26,7 +27,7 @@ import java.security.spec.X509EncodedKeySpec;
  * @Version 1.0
  **/
 @Component
-public class InitSecretKey implements ApplicationRunner {
+public class InitSystem implements ApplicationRunner {
     @Autowired
     RedisUtil redisUtil;
 
