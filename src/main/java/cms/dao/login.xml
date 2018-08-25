@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="loginDao" >
+
+	<select id="login" parameterType="hashmap" resultType="map">
+		select userId,userType,userName,phoneNo,realName from userInfo
+		<where>
+			<if test="userName!=null and userName!='' and userPwd!=null and userPwd!='' ">
+				(userName=#{userName} or phoneNo=#{userName} ) AND userPwd=#{userPwd}
+			</if>
+		</where>
+	</select>
+
+</mapper>

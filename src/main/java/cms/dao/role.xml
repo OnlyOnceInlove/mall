@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="roleDao">
+    <!-- 根据用户查询用户角色 -->
+    <select id="selectRoleIdByUserId" parameterType="String" resultType="hashMap">
+		select r.roleId,r.roleName
+		from role r
+		left join userrole u
+		on r.roleId = u.roleId
+		where userId = #{userId}
+	</select>
+
+    <!-- 查询该用户拥有的权限放到session中 -->
+    <select id="selAuthorityByUserId" parameterType="String" resultType="String">
+		select distinct(ra.AuthorityID) from roleauthority ra left join role r on r.roleId=ra.roleId
+		left join userrole ur on ur.roleId=r.roleId
+		where ur.userId=#{userId}
+	</select>
+</mapper>
