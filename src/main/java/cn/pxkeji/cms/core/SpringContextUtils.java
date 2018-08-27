@@ -1,4 +1,4 @@
-package cms.core;
+package cn.pxkeji.cms.core;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

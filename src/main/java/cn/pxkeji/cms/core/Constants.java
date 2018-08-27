@@ -1,4 +1,4 @@
-package cms.core;
+package cn.pxkeji.cms.core;
 
 import java.io.InputStream;
 import java.util.Properties;

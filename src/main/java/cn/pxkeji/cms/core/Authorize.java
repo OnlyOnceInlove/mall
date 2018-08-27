@@ -1,4 +1,4 @@
-package cms.core;
+package cn.pxkeji.cms.core;
 
 import java.lang.annotation.*;
 
@@ -15,7 +15,7 @@ import java.lang.annotation.*;
 public @interface Authorize {
     String setting();
 
-    public enum AuthorizeType {ALL, ONE}
+    public enum AuthorizeType{ALL,ONE}
 
     AuthorizeType type() default AuthorizeType.ALL;
 }

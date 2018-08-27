@@ -1,4 +1,4 @@
-package cms.core;
+package cn.pxkeji.cms.core;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

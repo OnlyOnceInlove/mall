@@ -1,4 +1,4 @@
-package cms.core;
+package cn.pxkeji.cms.core;
 
 import org.springframework.aop.framework.Advised;
 import org.springframework.aop.target.SingletonTargetSource;

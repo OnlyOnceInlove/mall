@@ -1,6 +1,5 @@
-package cms.utils;
+package cn.pxkeji.utils;
 
-import org.springframework.stereotype.Component;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 

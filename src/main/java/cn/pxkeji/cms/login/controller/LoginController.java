@@ -1,12 +1,11 @@
-package cms.login.controller;
+package cn.pxkeji.cms.login.controller;
 
-import cms.core.AuthorizeSettingLoader;
-import cms.utils.Jwt;
-import cms.utils.Tools;
+import cn.pxkeji.cms.core.AuthorizeSettingLoader;
+import cn.pxkeji.utils.Jwt;
+import cn.pxkeji.utils.Tools;
 import com.alibaba.fastjson.JSONArray;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,7 +38,7 @@ public class LoginController {
      * @Description 用户登录
      * @Date 2018/8/25 15:54
      * @Param [login, request]
-     * @Return java.util.Map<java.lang.String       ,       java.lang.Object>
+     * @Return java.util.Map<java.lang.String,java.lang.Object>
      **/
     @RequestMapping(value = "/userLogin", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody

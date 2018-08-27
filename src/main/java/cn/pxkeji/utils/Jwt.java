@@ -1,6 +1,6 @@
-package cms.utils;
+package cn.pxkeji.utils;
 
-import cms.core.Constants;
+import cn.pxkeji.cms.core.Constants;
 import io.jsonwebtoken.*;
 import org.springframework.stereotype.Component;
 
