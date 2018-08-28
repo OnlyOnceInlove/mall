@@ -1,4 +1,4 @@
-package cn.pxkeji.cms.core;
+package cn.pxkeji.core;
 public class ModuleInitializeContext{
     
 }

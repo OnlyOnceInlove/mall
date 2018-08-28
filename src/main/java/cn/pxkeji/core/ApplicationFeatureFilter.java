@@ -22,6 +22,7 @@ public class ApplicationFeatureFilter implements Filter{
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
+
         RequestFeatureContext context = RequestFeatureContext.getInstance(request);
         ApplicationFeature applicationFeature = new ApplicationFeature();
         applicationFeature.setApplicationId("12345");

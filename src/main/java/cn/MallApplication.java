@@ -1,8 +1,10 @@
 package cn;
 
-import cn.pxkeji.cms.core.AuthtokenInterceptor;
+import cn.pxkeji.cms.core.AuthorityInterceptor;
 import cn.pxkeji.core.ApplicationFeatureFilter;
+import cn.pxkeji.core.AuthtokenFilter;
 import cn.pxkeji.core.RequestFeatureArgumentResolver;
+import cn.pxkeji.core.UserFeatureFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -11,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.mvc.method.annotation.ServletWebArgumentResolverAdapter;
 
 import java.util.List;
 
@@ -37,16 +38,18 @@ public class MallApplication extends WebMvcConfigurationSupport {
      * @Param [registry]
      * @Return void
      **/
-    /*@Override
+    @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthtokenInterceptor()).excludePathPatterns("/login/**");
-    }*/
+        registry.addInterceptor(new AuthorityInterceptor()).addPathPatterns("/*");
+    }
     @Bean
     public FilterRegistrationBean someFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new AuthtokenFilter());
         registration.setFilter(new ApplicationFeatureFilter());
-        registration.addUrlPatterns("/index/*");
-        registration.setName("applicationFeatureFilter");
+        registration.setFilter(new UserFeatureFilter());
+        registration.addUrlPatterns("/*");
+        registration.setName("FilterChain");
         return registration;
     }
 

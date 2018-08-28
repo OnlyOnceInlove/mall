@@ -1,4 +1,7 @@
-package cn.pxkeji.cms.core;
+package cn.pxkeji.core;
+
+import cn.pxkeji.core.ModuleInitializeContext;
+
 /**
  * 模块初始化抽象类
  * 每个模块要求有一个实现类，主要完成模块的一些初始化工作，如数据库初始化

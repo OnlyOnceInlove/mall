@@ -4,6 +4,7 @@ import cn.pxkeji.cms.core.Authorize;
 import cn.pxkeji.cms.login.pojo.User;
 import cn.pxkeji.core.ApplicationFeature;
 import cn.pxkeji.core.RequestFeatureContext;
+import cn.pxkeji.core.UserFeature;
 import cn.pxkeji.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -39,9 +40,9 @@ public class HelloWorld {
      **/
     @RequestMapping(value = "/hello")
     @ResponseBody
-    public String hello(ApplicationFeature context) throws Exception {
+    public String hello(UserFeature context) throws Exception {
         System.out.println("jinfu");
-        System.out.println(context.getApplicationId());
+        System.out.println(context);
         return "123";
     }
 
