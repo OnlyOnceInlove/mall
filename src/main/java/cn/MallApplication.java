@@ -8,6 +8,7 @@ import cn.pxkeji.core.UserFeatureFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -23,6 +24,8 @@ import java.util.List;
  * @Description 电商系统启动类
  * @Version 1.0
  **/
+
+@EnableCaching
 @Configuration
 @SpringBootApplication
 public class MallApplication extends WebMvcConfigurationSupport {
@@ -42,6 +45,7 @@ public class MallApplication extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AuthorityInterceptor()).addPathPatterns("/*");
     }
+
     @Bean
     public FilterRegistrationBean someFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
@@ -49,17 +53,18 @@ public class MallApplication extends WebMvcConfigurationSupport {
         registration.setFilter(new ApplicationFeatureFilter());
         registration.setFilter(new UserFeatureFilter());
         registration.addUrlPatterns("/*");
-        registration.setName("FilterChain");
+        registration.setName("filterChain");
         return registration;
     }
-
+    /**
+     * @Author MaZhuli
+     * @Description 配置参数解析器
+     * @Date 2018/8/29 14:09
+     * @Param [argumentResolvers]
+     * @Return void
+     **/
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         argumentResolvers.add(new RequestFeatureArgumentResolver());
     }
-   /* @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        super.addArgumentResolvers(argumentResolvers);
-        argumentResolvers.add(new RequestFeatureArgumentResolver());
-    }*/
 }

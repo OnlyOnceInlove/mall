@@ -1,18 +1,12 @@
 package cn.pxkeji.cms.login.pojo;
 
-import cn.pxkeji.cms.core.ModelTrace;
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-
-@ModelTrace(serviceType = User.class, key = "id", name = "用户信息")
 public class User implements Serializable {
 
-    @Id
-    @GeneratedValue
     private Long id;
 
     @NotEmpty(message = "姓名不能为空")
@@ -26,7 +20,8 @@ public class User implements Serializable {
 
     @NotEmpty(message = "出生时间不能为空")
     private String birthday;
-
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
@@ -63,7 +58,7 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name=" + name +
                 ", age=" + age +
                 ", birthday=" + birthday +
                 '}';

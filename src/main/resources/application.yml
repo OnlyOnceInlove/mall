@@ -2,16 +2,15 @@
 server:
   port: 200
 
-jedis :
-  pool :
-    host : 192.168.1.117
-    port : 6379
-    config :
-      maxTotal: 100
-      maxIdle: 10
-      maxWaitMillis : 1800000 #30分钟
-
 spring:
+    redis:
+      port: 6379
+      host: 127.0.0.1
+      password:
+    cache:
+      type: ehcache
+      ehcache:
+        config: classpath:ehcache.xml
     datasource:
         name: mysql_test
         type: com.alibaba.druid.pool.DruidDataSource

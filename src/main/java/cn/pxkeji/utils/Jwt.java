@@ -47,7 +47,7 @@ public class Jwt {
                 .claim("userName", userName)
                 .claim("roles", roles)
                 .claim("privileges", privileges)
-                .signWith(SignatureAlgorithm.RS512, (PrivateKey) RSAUtils.getInsttance().get("private_key"));
+                .signWith(SignatureAlgorithm.RS512, (PrivateKey) RsaUtil.getInsttance().get("private_key"));
         //添加Token过期时间
         if (expiresSecond >= 0) {
             long expMillis = nowMillis + expiresSecond;
@@ -67,7 +67,7 @@ public class Jwt {
      **/
     public static Claims checkRsaToken(String jsonWebToken) {
         try {
-            Claims claims = Jwts.parser().setSigningKey((PublicKey) RSAUtils.getInsttance().get("public_key")).parseClaimsJws(jsonWebToken).getBody();
+            Claims claims = Jwts.parser().setSigningKey((PublicKey) RsaUtil.getInsttance().get("public_key")).parseClaimsJws(jsonWebToken).getBody();
             return claims;
         } catch (Exception ex) {
             return null;
@@ -83,7 +83,7 @@ public class Jwt {
      **/
     public static JWTResult checkToken(HttpServletRequest request) {
         String token = request.getHeader("token");
-        PublicKey pbkey = (PublicKey) RSAUtils.getInsttance().get("public_key");
+        PublicKey pbkey = (PublicKey) RsaUtil.getInsttance().get("public_key");
         try {
             Claims claims = Jwts.parser().setSigningKey(pbkey).parseClaimsJws(token).getBody();
             String sub = claims.get("sub", String.class);

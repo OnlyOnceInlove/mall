@@ -16,7 +16,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RSAUtils {
+public class RsaUtil {
     private static Map<String, Object> map;
 
     static {

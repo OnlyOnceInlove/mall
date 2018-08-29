@@ -11,16 +11,5 @@ import java.util.Properties;
  * @Version 1.0
  **/
 public class Constants {
-    public static final String SECRET_KEY;
-
-    static {
-        Properties properties = new Properties();
-        InputStream in = Constants.class.getClassLoader().getResourceAsStream("constants.properties");
-        try {
-            properties.load(in);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        SECRET_KEY = properties.getProperty("SECRET_KEY");
-    }
+    public static final String SECRET_KEY ="JKKLJOoasdlfj";
 }

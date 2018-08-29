@@ -34,8 +34,9 @@ public class UserFeatureFilter implements Filter {
         UserFeature userFeature = new UserFeature();
         String userId = request.getParameter("userId").toString();
         JDBCHelper jdbcHelper = new JDBCHelper("select * from userInfo where userId = " + userId);
+        ResultSet resultSet = null;
         try {
-            ResultSet resultSet = jdbcHelper.pst.executeQuery();//执行语句，得到结果集
+            resultSet = jdbcHelper.pst.executeQuery();//执行语句，得到结果集
             while (resultSet.next()) {
                 String phoneNo = resultSet.getString(4);
                 String realName = resultSet.getString(6);

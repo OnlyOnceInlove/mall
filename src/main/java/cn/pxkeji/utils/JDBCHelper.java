@@ -1,5 +1,7 @@
 package cn.pxkeji.utils;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,14 +16,18 @@ import java.util.Properties;
  * @Version 1.0
  **/
 public class JDBCHelper {
+    @Value("${spring.datasource.druid.url}")
     public static String url;
+    @Value("${spring.datasource.druid.driver-class-name}")
     public static String name;
+    @Value("${spring.datasource.druid.username}")
     public static String user;
+    @Value("${spring.datasource.druid.password}")
     public static String password;
     public Connection conn = null;
     public PreparedStatement pst = null;
 
-    static {
+   /* static {
         try {
             InputStream in = JDBCHelper.class.getClassLoader().getResourceAsStream("db.properties");
             Properties props = new Properties();
@@ -33,7 +39,7 @@ public class JDBCHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
     public JDBCHelper(String sql) {
         try {
             Class.forName(name);

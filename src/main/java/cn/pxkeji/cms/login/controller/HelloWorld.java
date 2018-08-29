@@ -5,6 +5,7 @@ import cn.pxkeji.cms.login.pojo.User;
 import cn.pxkeji.core.ApplicationFeature;
 import cn.pxkeji.core.RequestFeatureContext;
 import cn.pxkeji.core.UserFeature;
+import cn.pxkeji.utils.EhcacheUtil;
 import cn.pxkeji.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +32,8 @@ import java.util.List;
 public class HelloWorld {
     @Autowired
     RedisUtil redisUtil;
+    @Autowired
+    EhcacheUtil ehcacheUtil;
 
     /**
      * @Author MaZhuli
@@ -64,6 +68,25 @@ public class HelloWorld {
             }
         }
         return "123";
+    }
+
+    @RequestMapping(value = "/addEhcache")
+    @ResponseBody
+    public String addEhcache() {
+        User user = new User();
+        user.setAge(12);
+        user.setBirthday("1991-10-28");
+        user.setName("MaLi");
+        ehcacheUtil.put("localcache",user.getName(),user);
+        return "success!";
+    }
+
+    @RequestMapping(value = "/getEhcache")
+    @ResponseBody
+    public String getEhcache() {
+        User user = (User) ehcacheUtil.get("localcache", "MaLi");
+        System.out.println(user);
+        return "success!";
     }
 }
 
